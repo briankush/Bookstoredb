@@ -34,7 +34,6 @@ This project is focused on creating a MySQL database for managing a bookstore. I
 ## Entity Relationship Diagram
 ![Bookstore Database ERD](BookStore.drawio.png)
   
-
 ## Implementation Steps
 1. **Database Creation:** Initialize the `bookstore` database and set it as the current database.
 2. **Access Control Setup:** Define roles (Reader, Admin), and create users with appropriate permissions.
@@ -57,6 +56,7 @@ Recommended: MySQL Workbench or any SQL development environment. Ensure secure p
 3. Use `assignment.sql` to populate the database.
 4. Execute `test_queries.sql` for validation.
 5. Check roles and user access based on defined policies.
+
 
 
 ## Contributors
