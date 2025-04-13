@@ -30,6 +30,9 @@ This project is focused on creating a MySQL database for managing a bookstore. I
   - `assignment.sql`: Script to insert sample data into the tables.
   - `bookstorebd.sql`:The whole database schema.
   - `test_queries.sql`: SQL queries for testing the database functionality.
+
+## Entity Relationship Diagram
+![Bookstore Database ERD](BookStore.drawio.png)
   
 
 ## Implementation Steps
@@ -54,6 +57,7 @@ Recommended: MySQL Workbench or any SQL development environment. Ensure secure p
 3. Use `assignment.sql` to populate the database.
 4. Execute `test_queries.sql` for validation.
 5. Check roles and user access based on defined policies.
+
 
 ## Contributors
 - Vanessa Williams (https://github.com/nessa360)
