@@ -124,3 +124,246 @@ INSERT INTO book_author (book_id, author_id) VALUES
 
 ((SELECT book_id FROM book WHERE title = 'Ficciones'), 
  (SELECT author_id FROM author WHERE author_name = 'Jorge Luis Borges'));
+
+
+ -- 6. Customer table
+INSERT INTO customer (first_name, last_name, email, phone) VALUES
+('Brian', 'Mwangi', 'briankush05@gmail.com', '+25424345670')
+('James', 'Bond', 'jamesbond01@gmail.com', '+23324867463')  
+('Daddy', 'Kool', 'kool@gmail.com', '+25524567453')
+('Shukri', 'Hassan', 'san@gmail.com', '+445924824457')
+('Ngozi', 'Chukwu', 'ngozichukwu@gmail.com', '+234802345678'),
+('Amahle', 'Dlamini', 'amahled@eyahoo.com', '+27821234567'),
+('Sophie', 'Müller', 'sophiemueller2@yahoo.com', '+4915123456789'),
+('Jean', 'Dupont', 'jeandupon6t@gmail.com', '+33123456789'),
+('Wei', 'Chen', 'weichen@outlook.com', '+8613812345678'),
+('Priya', 'Patel', 'priyapatel@gmail.com', '+919876543210'),
+('Youssef', 'Alfarsi', 'youssefalfarsi@yahoo.com', '+966501234567'),
+('Sofía', 'García', 'sofigarcia896@yahoo.com', '+5215512345678'),
+('Aisha', 'Johnson', 'aishajohnsonofficial@outlook.com', '+447912345678'),
+('Tyrone', 'Williams', 'tyronew@gmail.com', '+12025551234');
+
+-- 7. Country table
+INSERT INTO country (country_name, country_code) VALUES
+('Kenya', '+254'),       
+('Ghana', '+233'),        
+('Tanzania', '+255'),    
+('United Kingdom', '+44'), 
+('Nigeria', ' +234'),     
+('South Africa', '+27'),  
+('Germany', '+49'),     
+('France', '+33'),      
+('China', '+86'),       
+('India', '+91'),        
+('Saudi Arabia', '+966'), 
+('Mexico', '+52'),      
+('United States', '+1');  
+
+-- 8. Address table
+INSERT INTO address (street_number, street_name, city, country_id, postal_code) VALUES
+('17', 'Kenyatta Road', 'Mombasa', (SELECT country_id FROM country WHERE country_code = '+254'), '80100'),
+('1', 'Spintex Road', 'Accra', (SELECT country_id FROM country WHERE country_code = '+233'), 'GA123'),
+('22', 'Oxford Street', 'Kumasi', (SELECT country_id FROM country WHERE country_code = '+233'), 'KS456'),
+('10', 'Samora Avenue', 'Dar es Salaam', (SELECT country_id FROM country WHERE country_code = '+255'), '11101'),
+('45', 'Uhuru Street', 'Arusha', (SELECT country_id FROM country WHERE country_code = '+255'), '23101'),
+('221B', 'Baker Street', 'London', (SELECT country_id FROM country WHERE country_code = '+44'), 'NW1 6XE'),
+('10', 'Downing Street', 'London', (SELECT country_id FROM country WHERE country_code = '+44'), 'SW1A 2AA'),
+('42', 'Adeniran Ogunsanya', 'Lagos', (SELECT country_id FROM country WHERE country_code = '+234'), '101241'),
+('15', 'Awolowo Road', 'Ikeja', (SELECT country_id FROM country WHERE country_code = '+234'), '101233'),
+('12', 'Vilakazi Street', 'Soweto', (SELECT country_id FROM country WHERE country_code = '+27'), '1804'),
+('101', 'Friedrichstraße', 'Berlin', (SELECT country_id FROM country WHERE country_code = '+49'), '10117'),
+('45', 'Kurfürstendamm', 'Berlin', (SELECT country_id FROM country WHERE country_code = '+49'), '10719'),
+('8', 'Champs-Élysées', 'Paris', (SELECT country_id FROM country WHERE country_code = '+33'), '75008'),
+('72', 'Rue de Rivoli', 'Paris', (SELECT country_id FROM country WHERE country_code = '+33'), '75004'),
+('88', 'Jianguo Road', 'Beijing', (SELECT country_id FROM country WHERE country_code = '+86'), '100025'),
+('120', 'Nanjing Road', 'Shanghai', (SELECT country_id FROM country WHERE country_code = '+86'), '200003'),
+('32', 'Marine Drive', 'Mumbai', (SELECT country_id FROM country WHERE country_code = '+91'), '400020'),
+('12', 'MG Road', 'Bangalore', (SELECT country_id FROM country WHERE country_code = '+91'), '560001'),
+('1', 'King Fahd Road', 'Riyadh', (SELECT country_id FROM country WHERE country_code = '+966'), '11564'),
+('45', 'Paseo de la Reforma', 'Mexico City', (SELECT country_id FROM country WHERE country_code = '+52'), '06500'),
+('120', 'Avenida Juárez', 'Guadalajara', (SELECT country_id FROM country WHERE country_code = '+52'), '44100'),
+('10', 'Kensington High Street', 'London', (SELECT country_id FROM country WHERE country_code = '+44'), 'W8 5NP'),
+('1', 'Princes Street', 'Edinburgh', (SELECT country_id FROM country WHERE country_code = '+44'), 'EH2 2EQ'),
+('123', '5th Avenue', 'New York', (SELECT country_id FROM country WHERE country_code = '+1'), '10001'),
+('456', 'Martin Luther King Blvd', 'Chicago', (SELECT country_id FROM country WHERE country_code = '+1'), '60616');
+
+-- 9 .Address status table
+ INSERT INTO address_status (status_name, description) VALUES
+('Current', 'Primary active address'),
+('Previous', 'Former address no longer in use'),
+('Billing', 'Address used for billing purposes'),
+('Shipping', 'Address used for shipping/delivery'),
+('Temporary', 'Short-term address'),
+('Work', 'Business or work-related address'),
+('Vacation', 'Seasonal or vacation address');
+
+
+-- 10. Customer_adress
+INSERT INTO customer_address (customer_id, address_id, status_id) VALUES
+-- Brian Mwangi
+(
+  (SELECT customer_id FROM customer WHERE email = 'briankush05@gmail.com'),
+  1,
+  (SELECT status_id FROM address_status WHERE status_name = 'Current')
+),
+(
+  (SELECT customer_id FROM customer WHERE email = 'briankush05@gmail.com'),
+  2,
+  (SELECT status_id FROM address_status WHERE status_name = 'Shipping')
+),
+
+-- James Bond
+(
+  (SELECT customer_id FROM customer WHERE email = 'jamesbond01@gmail.com'),
+  3,
+  (SELECT status_id FROM address_status WHERE status_name = 'Current')
+),
+(
+  (SELECT customer_id FROM customer WHERE email = 'jamesbond01@gmail.com'),
+  4,
+  (SELECT status_id FROM address_status WHERE status_name = 'Billing')
+),
+
+-- Daddy Kool
+(
+  (SELECT customer_id FROM customer WHERE email = 'kool@gmail.com'),
+  5,
+  (SELECT status_id FROM address_status WHERE status_name = 'Current')
+),
+(
+  (SELECT customer_id FROM customer WHERE email = 'kool@gmail.com'),
+  6,
+  (SELECT status_id FROM address_status WHERE status_name = 'Shipping')
+),
+
+-- Shukri Hassan
+(
+  (SELECT customer_id FROM customer WHERE email = 'san@gmail.com'),
+  7,
+  (SELECT status_id FROM address_status WHERE status_name = 'Current')
+),
+(
+  (SELECT customer_id FROM customer WHERE email = 'san@gmail.com'),
+  8,
+  (SELECT status_id FROM address_status WHERE status_name = 'Billing')
+),
+
+-- Ngozi Chukwu
+(
+  (SELECT customer_id FROM customer WHERE email = 'ngozichukwu@gmail.com'),
+  9,
+  (SELECT status_id FROM address_status WHERE status_name = 'Current')
+),
+(
+  (SELECT customer_id FROM customer WHERE email = 'ngozichukwu@gmail.com'),
+  10,
+  (SELECT status_id FROM address_status WHERE status_name = 'Shipping')
+),
+
+-- Amahle Dlamini
+(
+  (SELECT customer_id FROM customer WHERE email = 'amahled@eyahoo.com'),
+  11,
+  (SELECT status_id FROM address_status WHERE status_name = 'Current')
+),
+(
+  (SELECT customer_id FROM customer WHERE email = 'amahled@eyahoo.com'),
+  12,
+  (SELECT status_id FROM address_status WHERE status_name = 'Previous')
+),
+
+-- Sophie Müller
+(
+  (SELECT customer_id FROM customer WHERE email = 'sophiemueller2@yahoo.com'),
+  13,
+  (SELECT status_id FROM address_status WHERE status_name = 'Current')
+),
+(
+  (SELECT customer_id FROM customer WHERE email = 'sophiemueller2@yahoo.com'),
+  14,
+  (SELECT status_id FROM address_status WHERE status_name = 'Billing')
+),
+
+-- Jean Dupont
+(
+  (SELECT customer_id FROM customer WHERE email = 'jeandupon6t@gmail.com'),
+  15,
+  (SELECT status_id FROM address_status WHERE status_name = 'Current')
+),
+(
+  (SELECT customer_id FROM customer WHERE email = 'jeandupon6t@gmail.com'),
+  16,
+  (SELECT status_id FROM address_status WHERE status_name = 'Shipping')
+),
+
+-- Wei Chen
+(
+  (SELECT customer_id FROM customer WHERE email = 'weichen@outlook.com'),
+  17,
+  (SELECT status_id FROM address_status WHERE status_name = 'Current')
+),
+(
+  (SELECT customer_id FROM customer WHERE email = 'weichen@outlook.com'),
+  18,
+  (SELECT status_id FROM address_status WHERE status_name = 'Billing')
+),
+
+-- Priya Patel
+(
+  (SELECT customer_id FROM customer WHERE email = 'priyapatel@gmail.com'),
+  19,
+  (SELECT status_id FROM address_status WHERE status_name = 'Current')
+),
+(
+  (SELECT customer_id FROM customer WHERE email = 'priyapatel@gmail.com'),
+  20,
+  (SELECT status_id FROM address_status WHERE status_name = 'Shipping')
+),
+
+-- Youssef Alfarsi
+(
+  (SELECT customer_id FROM customer WHERE email = 'youssefalfarsi@yahoo.com'),
+  21,
+  (SELECT status_id FROM address_status WHERE status_name = 'Current')
+),
+(
+  (SELECT customer_id FROM customer WHERE email = 'youssefalfarsi@yahoo.com'),
+  22,
+  (SELECT status_id FROM address_status WHERE status_name = 'Billing')
+),
+
+-- Sofía García
+(
+  (SELECT customer_id FROM customer WHERE email = 'sofigarcia896@yahoo.com'),
+  23,
+  (SELECT status_id FROM address_status WHERE status_name = 'Current')
+),
+(
+  (SELECT customer_id FROM customer WHERE email = 'sofigarcia896@yahoo.com'),
+  24,
+  (SELECT status_id FROM address_status WHERE status_name = 'Shipping')
+),
+
+-- Aisha Johnson
+(
+  (SELECT customer_id FROM customer WHERE email = 'aishajohnsonofficial@outlook.com'),
+  25,
+  (SELECT status_id FROM address_status WHERE status_name = 'Current')
+),
+(
+  (SELECT customer_id FROM customer WHERE email = 'aishajohnsonofficial@outlook.com'),
+  26,
+  (SELECT status_id FROM address_status WHERE status_name = 'Previous')
+),
+
+-- Tyrone Williams
+(
+  (SELECT customer_id FROM customer WHERE email = 'tyronew@gmail.com'),
+  27,
+  (SELECT status_id FROM address_status WHERE status_name = 'Current')
+),
+(
+  (SELECT customer_id FROM customer WHERE email = 'tyronew@gmail.com'),
+  28,
+  (SELECT status_id FROM address_status WHERE status_name = 'Billing')
+);
