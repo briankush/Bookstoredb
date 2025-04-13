@@ -27,16 +27,16 @@ This project is focused on creating a MySQL database for managing a bookstore. I
   - `shipping_method`
   - `order_status`
   - **SQL Files:**
-  - `create_tables.sql`: SQL commands to create all tables.
-  - `insert_sample_data.sql`: Script to insert sample data into the tables.
+  - `assignment.sql`: Script to insert sample data into the tables.
+  - `bookstorebd.sql`:The whole database schema.
   - `test_queries.sql`: SQL queries for testing the database functionality.
+  
 
 ## Implementation Steps
 1. **Database Creation:** Initialize the `bookstore` database and set it as the current database.
-2. **Table Creation:** Execute `create_tables.sql` to establish all necessary tables.
-3. **Access Control Setup:** Define roles (Reader, Admin), and create users with appropriate permissions.
-4. **Sample Data Insertion:** Run `insert_sample_data.sql` to add example data.
-5. **Database Testing:** Use `test_queries.sql` to verify database operations and relationships.
+2. **Access Control Setup:** Define roles (Reader, Admin), and create users with appropriate permissions.
+3. **Sample Data Insertion:** Run `assignment.sql` to add example data.
+4. **Database Testing:** Use `test_queries.sql` to verify database operations and relationships.
 
 ## Access Control
 - **Reader Role:** Can only SELECT from all tables.
@@ -51,14 +51,13 @@ Recommended: MySQL Workbench or any SQL development environment. Ensure secure p
 
 ## Running the Database and Queries
 1. Connect to MySQL and select the `bookstore` database.
-2. Run `create_tables.sql` to build the schema.
-3. Use `insert_sample_data.sql` to populate the database.
+3. Use `assignment.sql` to populate the database.
 4. Execute `test_queries.sql` for validation.
 5. Check roles and user access based on defined policies.
 
 ## Contributors
 - Vanessa Williams (https://github.com/nessa360)
-- Brian Kuria (https://github.com/briankush)
+- Brian Kuria Mwangi (https://github.com/briankush)
 - Juanita Achieng (https://github.com/Juana-tech)
 
 
