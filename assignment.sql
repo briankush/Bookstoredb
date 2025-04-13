@@ -369,7 +369,7 @@ INSERT INTO customer_address (customer_id, address_id, status_id) VALUES
 );
 
 
--- Insert orders for all customers with proper foreign key references
+-- 11 Insert orders for all customers with proper foreign key references
 INSERT INTO cust_order (customer_id, order_date, shipping_method_id, dest_address_id)
 VALUES
 -- Brian Mwangi's orders
@@ -456,7 +456,7 @@ VALUES
   (SELECT address_id FROM address WHERE street_number = '88' AND street_name = 'Jianguo Road')
 );
 
--- Insert order lines connecting culturally relevant books to customer orders
+-- 12 Insert order lines connecting culturally relevant books to customer orders
 INSERT INTO order_line (order_id, book_id, price, quantity)
 VALUES
 -- Brian Mwangi's first order (Kenyan)
@@ -563,10 +563,7 @@ VALUES
 );
 
 
-
-
-
--- Remove the method_id from INSERT since it's auto-increment
+-- 13 Remove the method_id from INSERT since it's auto-increment
 INSERT INTO shipping_method(method_name, cost)
 VALUES
 ('Standard Shipping', 5.00),
@@ -580,7 +577,7 @@ VALUES
 ('Same-Day Delivery', 12.00),
 ('Pickup Point', 0.00);
 
--- Insert order status values
+-- 14 Insert order status values
 INSERT INTO order_status (status_value) VALUES
 ('Pending'),       -- Order placed but not yet processed
 ('Processing'),    -- Payment confirmed, preparing for shipment
@@ -596,7 +593,7 @@ INSERT INTO order_status (status_value) VALUES
 
 
 
--- Insert order history records showing the progression of each order
+-- 15 Insert order history records showing the progression of each order
 INSERT INTO order_history (order_id, status_id, status_date)
 VALUES
 -- Brian Mwangi's first order (complete journey)
