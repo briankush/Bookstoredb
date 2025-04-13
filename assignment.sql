@@ -368,6 +368,7 @@ INSERT INTO customer_address (customer_id, address_id, status_id) VALUES
   (SELECT status_id FROM address_status WHERE status_name = 'Billing')
 );
 
+
 -- Insert orders for all customers with proper foreign key references
 INSERT INTO cust_order (customer_id, order_date, shipping_method_id, dest_address_id)
 VALUES
