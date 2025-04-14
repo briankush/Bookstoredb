@@ -30,9 +30,10 @@ This project is focused on creating a MySQL database for managing a bookstore. I
   - `assignment.sql`: Script to insert sample data into the tables.
   - `bookstorebd.sql`:The whole database schema.
   - `test_queries.sql`: SQL queries for testing the database functionality.
+  - `permissionsAndRoles.sql`: SQL script to create users and grant them permissions and roles.
 
 ## Entity Relationship Diagram
-![Bookstore Database ERD](BookStore.drawio.p)
+![Bookstore Database ERD](BookStore.drawio.png)
   
 ## Implementation Steps
 1. **Database Creation:** Initialize the `bookstore` database and set it as the current database.
@@ -55,7 +56,7 @@ Recommended: MySQL Workbench or any SQL development environment. Ensure secure p
 1. Connect to MySQL and select the `bookstore` database.
 3. Use `assignment.sql` to populate the database.
 4. Execute `test_queries.sql` for validation.
-5. Check roles and user access based on defined policies.
+5. Check roles and user access based on defined policies on the `permissionsAndRoles.sql` file.
 
 
 
