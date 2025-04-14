@@ -32,7 +32,7 @@ This project is focused on creating a MySQL database for managing a bookstore. I
   - `test_queries.sql`: SQL queries for testing the database functionality.
 
 ## Entity Relationship Diagram
-![Bookstore Database ERD](BookStore.drawio.png)
+![Bookstore Database ERD](BookStore.drawio.p)
   
 ## Implementation Steps
 1. **Database Creation:** Initialize the `bookstore` database and set it as the current database.
